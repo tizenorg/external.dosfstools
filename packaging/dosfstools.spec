@@ -72,6 +72,10 @@ install -m755 -d $RPM_BUILD_ROOT/%{_docdir}/%{name}/mkdosfs
 install -m644 CHANGES TODO README.Atari $RPM_BUILD_ROOT/%{_docdir}/%{name}/
 install -m644 dosfsck/{COPYING,README} $RPM_BUILD_ROOT/%{_docdir}/%{name}/dosfsck
 install -m644 mkdosfs/{COPYING,README} $RPM_BUILD_ROOT/%{_docdir}/%{name}/mkdosfs
+# license
+mkdir -p %{buildroot}/usr/share/license
+cp dosfsck/COPYING %{buildroot}/usr/share/license/dosfsck
+cp mkdosfs/COPYING %{buildroot}/usr/share/license/mkdosfs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,3 +86,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}
 /sbin/*
 %{_mandir}/man8/*.gz
+/usr/share/license/dosfsck
+/usr/share/license/mkdosfs
